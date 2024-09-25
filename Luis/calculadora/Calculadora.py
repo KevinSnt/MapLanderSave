@@ -6,7 +6,7 @@ while True:
         print("solo numeros")
         continue
     try:
-        data2 = int(input("digite el valor de la segunda variable:"))
+        data2 = float(input("digite el valor de la segunda variable:"))
     except ValueError:
         print("solo numeros")
         continue
