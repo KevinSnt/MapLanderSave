@@ -1,7 +1,6 @@
 #methods
-numero1 = 0
-numero2 = 0
 def introNums():
+    global numero1, numero2
     while True:
         try:
             numero1 = int(input("ingrese el primer numero: "))
@@ -19,7 +18,7 @@ def introNums():
             continue
 
 def suma(num1, num2):
-    return("El resultado de la suma es: ",num1 + num2)
+    print("El resultado de la suma es: ",num1 + num2)
 
 def resta(num1, num2):
     print("El resultado de la resta es: ",num1 - num2)
