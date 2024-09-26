@@ -1,40 +1,56 @@
 #methods
-def introNums():
-    global numero1, numero2
+numbers = []
+
+def numbEnter():
+    global numbers
     while True:
         try:
-            numero1 = int(input("ingrese el primer numero: "))
+            amount = int(input("Cuantos numeros desea calcular?: "))
+            if amount != 0:
+                break
+            print("Ingrese un valor distinto de 0")
+        except ValueError:
+            print("Solo se pueden ingresar numeros enteros y y no dejar la casilla vacia ")
+            continue
+
+    while True:
+        try:
+            for i in range(amount):
+                number = int(input(f"ingrese el numero {i + 1}: "))
+                numbers.append(number)
             break
         except ValueError:
             print("Solo se pueden ingresar numeros enteros y y no dejar la casilla vacia")
             continue
 
-    while True:
-        try:
-            numero2 = int(input("ingrese el segundo numero: "))
-            break
-        except ValueError:
-            print("Solo se pueden ingresar numeros enteros y y no dejar la casilla vacia")
-            continue
 
-def suma(num1, num2):
-    print("El resultado de la suma es: ",num1 + num2)
+def addition(numbs):
+    result = 0
+    for i in numbs:
+        result += i
+    print("El resultado de la suma es: ", result)
 
-def resta(num1, num2):
-    print("El resultado de la resta es: ",num1 - num2)
+def subtraction(numbs):
+    result = numbs[0]
+    for i in numbs[1:]:
+        result -= i
+    print("El resultado de la resta es: ", result)
 
-def multiplicacion(num1, num2):
-    print("El resultado de la multiplicacion es: ",num1 * num2)
+def multiplication(numbs):
+    result = numbs[0]
+    for i in numbs[1:]:
+        result *= i
+    print("El resultado de la multiplicacion es: ",result)
 
-def division(num1, num2):
-    if num2==0:
-        print("no se puede dividir entre 0")
-    else:
-        print("El resultado de la division es: ",num1 / num2)
+def division(numbs):
+    result = numbs[0]
+    for i in numbs[1:]:
+        result /= i
+        print("El resultado de la division es: ",result)
 
 
 #####################
-introNums()
+numbEnter()
 while True:
     print("""
          seleccione el numero de la operacion que desea realizar
@@ -50,16 +66,14 @@ while True:
 
     match operacion:
         case "1":
-            suma(numero1, numero2)
+            addition(numbers)
         case "2":
-            resta(numero1, numero2)
+            subtraction(numbers)
         case "3":
-            multiplicacion(numero1, numero2)
+            multiplication(numbers)
         case "4":
-            division(numero1, numero2)
+            division(numbers)
         case "5":
-            introNums()
+            numbEnter()
         case "6":
             break
-
-
