@@ -10,13 +10,13 @@ def subtract(dataNumbers):
         result -= num
     return result
 def multiply(dataNumbers):
-    result = dataNumbers
-    for num in dataNumbers:
+    result = dataNumbers[0]
+    for num in dataNumbers[1:]:
         result *= num
     return result
 def divide(dataNumbers):
     result = dataNumbers[0]
-    for num in dataNumbers:
+    for num in dataNumbers[1:]:
         result /= num
     return result
 
