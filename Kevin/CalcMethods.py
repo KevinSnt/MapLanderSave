@@ -26,6 +26,7 @@ def numbEnter():
 
 def addition(numbs):
     result = 0
+    result = 0
     for i in numbs:
         result += i
     print("El resultado de la suma es: ", result)
