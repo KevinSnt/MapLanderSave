@@ -23,7 +23,6 @@ def numbEnter():
             print("Solo se pueden ingresar numeros enteros y y no dejar la casilla vacia")
             continue
 
-
 def addition(numbs):
     result = 0
     for i in numbs:
@@ -47,7 +46,6 @@ def division(numbs):
     for i in numbs[1:]:
         result /= i
         print("El resultado de la division es: ",result)
-
 
 #####################
 numbEnter()
@@ -77,3 +75,6 @@ while True:
             numbEnter()
         case "6":
             break
+        case _:
+            print("Seleccione una opcion valida dentro del rango de opciones")
+            continue
