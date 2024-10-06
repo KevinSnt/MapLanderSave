@@ -116,7 +116,7 @@ def addInput():#Generar una vista al momento de llamar al metodo
 
 
 def conditionSigne():
-    validate = [data.get()]  # Assuming data.get() returns a string
+    validate = data.get().split(",")
     for value in validate:
         if value.count('^') > 1:
             messagebox.showinfo('Error', "No puedes agregar más de un signo (^) ")
@@ -127,19 +127,34 @@ def conditionSigne():
     return True
 
 
-def validateSigne ():
+def validateSigne():
     try:
         validateNumbers = data.get().split(",")
+
         for i in range(len(validateNumbers)):
             condition = validateNumbers[i]
+
+
+            while "^" in condition:
+                base, exponent = condition.split("^", 1)
+
+
+                if "/" in base:
+                    num1, num2 = base.split("/")
+                    base = str(float(num1) / float(num2))
+
+
+                condition = str(float(base) ** float(exponent))
+
+
             if "/" in condition:
                 num1, num2 = condition.split("/")
-                result = float(num1) / float(num2)
+                result = str(float(num1) / float(num2))
                 validateNumbers[i] = result
-            if "^" in condition:
-                num1, num2 = condition.split("^")
-                result = float(num1) ** float(num2)
-                validateNumbers[i] = result
+            else:
+                validateNumbers[i] = condition
+
+        validateNumbers = [float(num) for num in validateNumbers]
 
         return validateNumbers
     except Exception as e:
