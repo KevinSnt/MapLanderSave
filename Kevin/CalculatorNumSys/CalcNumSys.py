@@ -6,7 +6,9 @@ from string import hexdigits
 numbers = []
 hexadecimalDigits = '0123456789ABCDEF'
 mesageOptionError = "Seleccione una opcion valida dentro del rango de opciones 1, 2, 3, 4, 5"
-menuOperation = """Seleccione el numero de la operacion que desea realizar (la operacion se hara en el orden en el que se ingresen los numeros)
+menuOperation = """Seleccione el numero de la operacion que desea realizar (la operacion se hara en el orden en el que se ingresen los numeros
+, si el resultado de la division tiene muchos 0 despues del punto decimal solo se mostraran 0s o 0 ya que solo se mostraran los primeros 500 numeros)
+
 
          1) Suma
          2) Resta
@@ -136,7 +138,7 @@ def decimalToBinaryOrOctal(decimal, base):
             intPart //= base
 
     decimalBinary = ''
-    while decimalPart > 0 and len(decimalBinary) < 200:
+    while decimalPart > 0 and len(decimalBinary) < 500:
         decimalPart *= base
         intPart = int(decimalPart)
         decimalBinary += str(intPart)
@@ -168,7 +170,7 @@ def decimalToHex(decimal):
             intPart //= 16
 
     decimalHex = ''
-    while decimalPart > 0 and len(decimalHex) < 200:
+    while decimalPart > 0 and len(decimalHex) < 500:
         decimalPart *= 16
         intPart = int(decimalPart)
         decimalHex += hexadecimalDigits[intPart]
@@ -212,7 +214,7 @@ def division(numbs):
 #Console
 while True:
     print("""Que sistema numerico desea utilizar para la operacion?
-             (Solo se admitiran numeros sin ningun espacio o tipo de caracter adicional a cada sistema numerico exeptuando un - al inicio para determinar si es un numero negativo) 
+    (Solo se admitiran numeros sin ningun espacio o tipo de caracter adicional a cada sistema numerico exeptuando un - al inicio para determinar si es un numero negativo) 
     
     1) Binario (Solo numeros 0 y 1)
     2) Octal (Solo numeros 1, 2, 3, 4, 5, 6, 7 )
