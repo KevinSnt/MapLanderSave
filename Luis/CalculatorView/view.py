@@ -116,7 +116,7 @@ def addInput():#Generar una vista al momento de llamar al metodo
 
 
 def conditionSigne():
-    validate = [data.get()]  # Assuming data.get() returns a string
+    validate = data.get()  
     for value in validate:
         if value.count('^') > 1:
             messagebox.showinfo('Error', "No puedes agregar más de un signo (^) ")
