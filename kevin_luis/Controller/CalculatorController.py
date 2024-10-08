@@ -72,6 +72,3 @@ def hexToDecimal():
 
 
 def decimalToConvert():
-
-
-
