@@ -7,7 +7,7 @@ def createWindow():
     window.geometry('800x800')
     window.mainloop()
 
-"""def initComponentWindow():
+def initComponentWindow():
 
 def onClickButton():
 
