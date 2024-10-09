@@ -118,7 +118,7 @@ def constantInput():
         messagebox.showinfo("Error", "Ingrese un numero valido")
 def deleteInput():
     global coutEntries
-    #entryDelete = entry1.get()
+    entryDelete = entry1.get()
     #if coutEntries >0:
 
 
