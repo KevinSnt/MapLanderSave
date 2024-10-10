@@ -7,7 +7,8 @@ from tkinter import messagebox
 
 
 def createWindow():
-    global window,entry1 ,entries ,countEntries
+    global window,entry1 ,entries ,countEntries,entryList
+    entryList = []
     countEntries = 0
     window = tk.Tk()
     window.title("Calculator")
@@ -20,20 +21,14 @@ def createWindow():
     entry1.grid(row=0, column=0, padx=10, pady=10)
     entryOperation1.grid(row=1, column=0 , padx=10, pady=10)
     btn_add = tk.Button(window, text="+", command=constantInput)
-    btn_delete = tk.Button(window, text="-", command=constantInput)
+    btn_delete = tk.Button(window, text="-", command=deleteInput)
     btn_add.grid(row=2, column=1, padx=10, pady=10)
     btn_delete.grid(row=3, column=1,padx=10, pady=10)
-
-
-
-
-
-
 
 #operations buttons
     btnPlus = tk.Button(window, text="+")
     btnPlus.grid(row=0, column=2)
-    btnSubstraction = tk.Button(window, text="-")
+    btnSubstraction = tk.Button(window, text="-",command=substractMultiplyAddinputs)
     btnSubstraction.grid(row=1, column=2)
     btnMultiply = tk.Button(window, text="*")
     btnMultiply.grid(row=2, column=2)
@@ -98,7 +93,7 @@ def createWindow():
     #notificar al usuario
     # consola"""
 def constantInput():
-    global countEntries
+    global countEntries,entryList
     """input1 = tk.Entry(window)
     input1.grid(row=len(window.grid_slaves()) // 2, column=0, padx=10, pady=10)
     """
@@ -110,16 +105,40 @@ def constantInput():
         elif countEntries<entriesInput:
             inputnew = tk.Entry(window)
             inputnew.grid(row=len(window.grid_slaves()) // 2, column=0, padx=10, pady=10)
+            entryList.append(inputnew)
             countEntries += 1
         else:
             messagebox.showinfo("Error", "se alcanzo el maximo de dato seleccionado")
     except Exception as e:
         print(e)
         messagebox.showinfo("Error", "Ingrese un numero valido")
+
+
 def deleteInput():
-    global coutEntries
-    entryDelete = entry1.get()
-    #if coutEntries >0:
+    global countEntries, entryList
+    if entryList:
+        last_entry = entryList.pop()  # Remove the last entry from the list
+        last_entry.destroy()  # Remove it from the GUI
+        countEntries -= 1
+    else:
+        messagebox.showinfo("Error", "No entries to delete.")
+
+
+
+def substractMultiplyAddinputs():
+    #imputs
+    entryAddInputs = tk.Entry(window)
+    entrynum = tk.Entry(window)
+    btnPlus = tk.Button(window, text="+")
+    btnSubstraction = tk.Button(window, text="-",pady=5)
+
+
+    #position
+    entryAddInputs.grid(row=6, column=0, padx=10, pady=10)
+    entrynum.grid(row =7, column = 0,padx=10, pady=10)
+    btnPlus.grid(row=8, column=1)
+    btnSubstraction.grid(row=9, column=1,pady = 5 )
+
 
 
 
