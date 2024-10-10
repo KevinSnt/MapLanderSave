@@ -115,7 +115,7 @@ def constantInput():
 
 
 def deleteInput():
-    global countEntries, entryList
+    global countEntries, entryList,list
     if entryList:
         last_entry = entryList.pop()  # Remove the last entry from the list
         last_entry.destroy()  # Remove it from the GUI
